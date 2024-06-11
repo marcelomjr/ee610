@@ -1,0 +1,17 @@
+* C:\Users\Marcelo\Documents\LTspice\NAND2\NAND2.asc
+M1 N002 B 0 0 NMOS l=0.15u w=1.24u
+V2 Vdd 0 2
+C1 out 0 30f
+M3 out A N002 0 NMOS l=0.15u w=1.24u
+M4 Vdd A out Vdd PMOS l=0.15u w=2.85u
+M5 Vdd B out Vdd PMOS l=0.15u w=2.85u
+V1 B 0 PULSE(0 2 0 1n 1n 5u 10u)
+V3 A 0 PULSE(0 2 0 1n 1n 10u 20u)
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\Users\Marcelo\AppData\Local\LTspice\lib\cmp\standard.mos
+.model NMOS NMOS(KP=400u VT0=0.45)
+.model PMOS PMOS(KP=87u VT0=-0.45)
+.tran 21u
+.backanno
+.end
